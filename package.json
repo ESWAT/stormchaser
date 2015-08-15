@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src",
-    "data-cleanup": "node tools/datacleanup.js"
+    "build": "node tools/databuilder.js"
   },
   "devDependencies": {
     "autoprefixer-loader": "^2.0.0",

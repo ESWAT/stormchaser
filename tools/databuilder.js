@@ -11,7 +11,7 @@ var heroData = [],
     heroTalentBuilds = talentBuildsJson.results.talents,
     heroWinPercentages = winPercentagesJson.results.heroes;
 
-// Populate heroData with base statistics
+// Populate heroData with base statistics and win percentages
 for (var i = 0; i < heroesJson.length; i++) {
   var hero = heroesJson[i],
       heroName = checkName(hero.name),
