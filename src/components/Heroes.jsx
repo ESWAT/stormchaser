@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroActions from '../actions/HeroActions';
 import HeroStore from '../stores/HeroStore';
+import Hero from './Hero';
 
 var Heroes = React.createClass({
   getInitialState() {
@@ -36,7 +37,7 @@ var Heroes = React.createClass({
       <ul>
         {this.state.heroes.map((hero) => {
           return (
-            <li>{hero.name}</li>
+            <Hero key={hero.id} name={hero.name} />
           );
         })}
       </ul>
