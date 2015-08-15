@@ -13,7 +13,7 @@ class HeroActions {
         return res.json();
       })
       .then((res) => {
-        this.actions.updateHeroes(res.heroes);
+        this.actions.updateHeroes(res);
       })
       .catch((errorMessage) => {
         this.actions.heroesFailed(errorMessage);
