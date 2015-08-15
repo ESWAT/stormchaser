@@ -1,9 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Heroes from './Heroes';
 
-export default class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <h1>Hello, world.</h1>
+      <div>
+        <h1>Hello, world.</h1>
+        <Heroes />
+      </div>
     );
   }
 }
+
+export default App;
