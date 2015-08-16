@@ -8,7 +8,7 @@ var path               = require('path'),
 
 var heroData = [],
     correctNames = jsonq(correctionsJson),
-    heroTalentBuilds = talentBuildsJson.results.talents,
+    heroTalentBuilds = getTalentNames(talentBuildsJson.results.talents),
     heroWinPercentages = winPercentagesJson.results.heroes;
 
 // Populate heroData with base statistics and win percentages
@@ -55,4 +55,18 @@ function checkName(name) {
 
 function imageName(name) {
   return name.replace(/\W/g, '').toLowerCase()
+}
+
+function getTalentNames(talents) {
+  var talentNames = [];
+  for (var i = 0; i < talents.length; i++) {
+    talentNames.push(
+      talents[i].name.substring(
+        0,
+        talents[i].name.indexOf(':')
+      )
+    )
+  }
+
+  return talentNames;
 }
