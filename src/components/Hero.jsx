@@ -5,9 +5,9 @@ var Hero = React.createClass({
     var imgSrc = require('../images/heroes/' + this.props.imageName + '.jpg');
 
     return (
-      <li>
-        <img src={imgSrc} />
-        <p>{this.props.name}</p>
+      <li className='Hero'>
+        <img className='Hero-image' src={imgSrc} width='206' height='300' />
+        <p className='Hero-name'>{this.props.name}</p>
       </li>
     )
   }

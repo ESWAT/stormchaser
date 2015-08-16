@@ -1,3 +1,5 @@
+import '../styles/heroes.scss';
+
 import React from 'react';
 import HeroActions from '../actions/HeroActions';
 import HeroStore from '../stores/HeroStore';
@@ -34,7 +36,7 @@ var Heroes = React.createClass({
     }
 
     return (
-      <ul>
+      <ul className='Heroes'>
         {this.state.heroes.map((hero) => {
           return (
             <Hero key={hero.id} name={hero.name} imageName={hero.imageName} />

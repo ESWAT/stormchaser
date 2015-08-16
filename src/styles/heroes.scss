@@ -1,0 +1,23 @@
+.Heroes {
+  padding: 0;
+  margin: 0 -20px;
+  list-style: none;
+}
+
+.Hero {
+  display: inline-block;
+  margin: 20px;
+
+  &-image {
+    margin: 0 0 10px;
+    height: 300px;
+    widows: 206px;
+  }
+
+  &-name {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+  }
+}
