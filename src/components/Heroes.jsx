@@ -37,7 +37,7 @@ var Heroes = React.createClass({
       <ul>
         {this.state.heroes.map((hero) => {
           return (
-            <Hero key={hero.id} name={hero.name} />
+            <Hero key={hero.id} name={hero.name} imageName={hero.imageName} />
           );
         })}
       </ul>

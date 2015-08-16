@@ -34,6 +34,10 @@ module.exports = {
         test: /\.scss$/,
         loaders: ['style', 'css', 'autoprefixer', 'sass'],
         include: path.join(__dirname, 'src')
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        loaders: ['file']
       }
     ],
     noParse: /\.min\.js/

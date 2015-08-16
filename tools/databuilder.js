@@ -26,6 +26,7 @@ for (var i = 0; i < heroesJson.length; i++) {
   heroData.push({
     "id": i + 1,
     "name": heroName,
+    "imageName": imageName(heroName),
     "role": hero.role,
     "franchise": hero.franchise,
     "winPercent": heroWinPercent.substring(0, heroWinPercent.length - 2),
@@ -50,4 +51,8 @@ function checkName(name) {
   });
 
   return foundMatch.length ? foundMatch.sibling('correctName').value()[0] : name;
+}
+
+function imageName(name) {
+  return name.replace(/\W/g, '').toLowerCase()
 }
