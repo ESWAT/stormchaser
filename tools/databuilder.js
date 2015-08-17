@@ -1,4 +1,5 @@
-var path               = require('path'),
+var time               = process.hrtime(),
+    path               = require('path'),
     fs                 = require('fs'),
     jsonq              = require('jsonq'),
     heroesJson         = require('../data/heroes.json'),
@@ -49,7 +50,8 @@ fs.writeFile(
   JSON.stringify(heroData),
   function (err) {
     if (err) throw err;
-    console.log('Data written');
+    time = process.hrtime(time);
+    console.log('Data written in %dms', (time[1]/1000000).toFixed(2));
   }
 );
 
