@@ -12,20 +12,24 @@ var Heroes = React.createClass({
   },
 
   componentDidMount() {
-    HeroStore.listen(this._onChange);
+    HeroStore.listen(this.onChange);
     HeroActions.fetchHeroes();
+  },
+
+  componentWillUnmount() {
+    HeroStore.unlisten(this.onChange);
+  },
+
+  onChange() {
+    this.setState({
+      heroes: HeroStore.getState().heroes,
+      errorMessage: HeroStore.getState().errorMessage
+    });
   },
 
   handleHeroDisplay(hero) {
     DisplayActions.displayVisible(true);
     DisplayActions.populateDisplay(hero);
-  },
-
-  _onChange() {
-    this.setState({
-      heroes: HeroStore.getState().heroes,
-      errorMessage: HeroStore.getState().errorMessage
-    });
   },
 
   render() {

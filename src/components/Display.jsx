@@ -10,14 +10,18 @@ var Display = React.createClass({
   },
 
   componentDidMount() {
-    DisplayStore.listen(this._onChange);
+    DisplayStore.listen(this.onChange);
   },
 
-  _onChange() {
+  onChange() {
     this.setState({
       visible: DisplayStore.getState().visible,
       hero: DisplayStore.getState().hero
     });
+  },
+
+  componentDidUnmount() {
+    DisplayStore.unlisten(this.onChange);
   },
 
   render() {
