@@ -26,7 +26,7 @@ for (var i = 0; i < heroesJson.length; i++) {
   for (var tier in hero.talents) {
     for (var talent in hero.talents[tier]) {
       var thisTalent = hero.talents[tier][talent],
-          optimal = getOptimalTalent(thisTalent.name);
+          optimal = getOptimalTalent(thisTalent.name, heroName);
 
       hero.talents[tier][talent].optimal = optimal;
     }
@@ -73,7 +73,7 @@ function getTalentNames(talents) {
     var talentName = talents[i].name;
     talentName = talentName.substring(0, talentName.indexOf(':'));
 
-    var talentHero = talents[i].url;
+    var talentHero = decodeURI(talents[i].url);
     talentHero = talentHero.substring(talentHero.lastIndexOf('?Hero=') + 6);
 
     talentNames.push({
@@ -84,11 +84,12 @@ function getTalentNames(talents) {
   return talentNames;
 }
 
-function getOptimalTalent(talent) {
+function getOptimalTalent(talent, hero) {
   var isOptimal = false;
 
   for (var i = 0; i < heroTalentBuilds.length; i++) {
-    if (heroTalentBuilds[i].name == talent) {
+    var currentTalent = heroTalentBuilds[i];
+    if (currentTalent.name == talent && currentTalent.hero == hero) {
       isOptimal = true;
     }
   }
