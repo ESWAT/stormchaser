@@ -2,6 +2,7 @@ import '../styles/heroes.scss';
 
 import React from 'react';
 import HeroActions from '../actions/HeroActions';
+import DisplayActions from '../actions/DisplayActions';
 import HeroStore from '../stores/HeroStore';
 import Hero from './Hero';
 
@@ -13,6 +14,11 @@ var Heroes = React.createClass({
   componentDidMount() {
     HeroStore.listen(this._onChange);
     HeroActions.fetchHeroes();
+  },
+
+  handleHeroDisplay(hero) {
+    DisplayActions.displayVisible(true);
+    DisplayActions.populateDisplay(hero);
   },
 
   _onChange() {
@@ -39,7 +45,7 @@ var Heroes = React.createClass({
       <ul className='Heroes'>
         {this.state.heroes.map((hero) => {
           return (
-            <Hero key={hero.id} name={hero.name} imageName={hero.imageName} />
+            <Hero key={hero.id} name={hero.name} imageName={hero.imageName} onClick={this.handleHeroDisplay.bind(this, hero)} />
           );
         })}
       </ul>
