@@ -1,17 +1,32 @@
 .Heroes {
   padding: 0;
-  margin: 0 -20px;
+  margin: 0 -10px 200px;
   list-style: none;
 }
 
 .Hero {
   display: inline-block;
-  margin: 17px;
+  height: auto;
+  width: 20%;
+  padding: 0 10px 20px;
+
+  &:hover{
+    .Hero-image {
+      border-color: #d986ff;
+    }
+
+    .Hero-image {
+      color: #d986ff;
+    }
+  }
 
   &-image {
+    border: 1px solid #6d67d6;
+    display: inline-block;
     margin: 0 0 10px;
-    height: 300px;
-    widows: 206px;
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
   }
 
   &-name {
@@ -19,5 +34,9 @@
     text-transform: uppercase;
     font-weight: 700;
     text-align: center;
+  }
+
+  &:nth-of-type(4n+1) {
+    clear: both;
   }
 }
