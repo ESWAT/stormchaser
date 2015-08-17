@@ -21,7 +21,16 @@ for (var i = 0; i < heroesJson.length; i++) {
     return this.text === heroName;
   })
     .sibling('winPercent')
-    .value()[0]
+    .value()[0];
+
+  for (var tier in hero.talents) {
+    for (var talent in hero.talents[tier]) {
+      var thisTalent = hero.talents[tier][talent],
+          optimal = getOptimalTalent(thisTalent.name);
+
+      hero.talents[tier][talent].optimal = optimal;
+    }
+  }
 
   heroData.push({
     "id": i + 1,
@@ -60,13 +69,29 @@ function imageName(name) {
 function getTalentNames(talents) {
   var talentNames = [];
   for (var i = 0; i < talents.length; i++) {
-    talentNames.push(
-      talents[i].name.substring(
-        0,
-        talents[i].name.indexOf(':')
-      )
-    )
+
+    var talentName = talents[i].name;
+    talentName = talentName.substring(0, talentName.indexOf(':'));
+
+    var talentHero = talents[i].url;
+    talentHero = talentHero.substring(talentHero.lastIndexOf('?Hero=') + 6);
+
+    talentNames.push({
+      "name": talentName,
+      "hero": talentHero
+    });
+  }
+  return talentNames;
+}
+
+function getOptimalTalent(talent) {
+  var isOptimal = false;
+
+  for (var i = 0; i < heroTalentBuilds.length; i++) {
+    if (heroTalentBuilds[i].name == talent) {
+      isOptimal = true;
+    }
   }
 
-  return talentNames;
+  return isOptimal;
 }
