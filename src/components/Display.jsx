@@ -3,7 +3,7 @@ import '../styles/display.scss';
 import React from 'react';
 import DisplayActions from '../actions/DisplayActions';
 import DisplayStore from '../stores/DisplayStore';
-import Tiers from './Tiers';
+import TalentTiers from './TalentTiers';
 
 var Display = React.createClass({
   getInitialState() {
@@ -32,7 +32,7 @@ var Display = React.createClass({
           <p>{this.state.hero.name}</p>
           <p>{this.state.hero.role}</p>
           <p>{this.state.hero.winPercent + '%'}</p>
-          <Tiers talents={this.state.hero.talents} />
+          <TalentTiers talents={this.state.hero.talents} />
         </div>
       )
     }
