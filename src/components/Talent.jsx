@@ -2,8 +2,11 @@ import React from 'react';
 
 var Talent = React.createClass({
   render() {
+    let klass = 'Talent';
+    klass += this.props.optimal ? ' Talent--optimal' : '';
+
     return (
-      <li className='TalentTier-talent'>{this.props.name}</li>
+      <li className={klass}>{this.props.name}</li>
     )
   }
 });

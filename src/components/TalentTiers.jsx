@@ -1,3 +1,5 @@
+import '../styles/talentTiers.scss';
+
 import React from 'react';
 import Talent from './Talent.jsx';
 
@@ -6,12 +8,12 @@ var TalentTiers = React.createClass({
     var tiers = this.props.talents;
 
     return (
-      <div className='TalentsTiers'>
+      <div className='TalentTiers'>
         {Object.keys(tiers).map((key) => {
           return (
-            <ul className='TalentTier-tier'>
+            <ul className='TalentTier'>
               {tiers[key].map((talent) => {
-                return <Talent name={talent.name} />
+                return <Talent name={talent.name} optimal={talent.optimal} />
               })}
             </ul>
           )
