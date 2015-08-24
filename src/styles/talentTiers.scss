@@ -15,6 +15,17 @@
 
 .Talent {
   &--optimal {
-    color: #d986ff;
+    color: #00d8ff;
+    animation: glow 2s linear infinite;
   }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(#00d8ff, 0);
+  }
+  50% {
+    text-shadow: 0 0 5px rgba(#00d8ff, .75);
+  }
+
 }
