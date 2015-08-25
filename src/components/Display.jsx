@@ -29,9 +29,9 @@ var Display = React.createClass({
     if (this.state.visible && this.state.hero) {
       return (
         <div className='Display'>
-          <p>{this.state.hero.name}</p>
-          <p>{this.state.hero.role}</p>
-          <p>{this.state.hero.winPercent + '%'}</p>
+          <p className='Display-name'>{this.state.hero.name}</p>
+          <p className='Display-role'>{this.state.hero.role}</p>
+          <p className='Display-winPercent'>{this.state.hero.winPercent + '%'}</p>
           <TalentTiers talents={this.state.hero.talents} />
         </div>
       )
