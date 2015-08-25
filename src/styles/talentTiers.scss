@@ -3,10 +3,12 @@
 }
 
 .TalentTier {
+  min-height: 110px;
+  padding: 0;
   display: inline-block;
+  width: 14.285714286%;
   flex: 1 auto;
   list-style: none;
-  padding: 0;
 
   &-title {
     font-weight: bold;
