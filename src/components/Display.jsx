@@ -31,7 +31,7 @@ var Display = React.createClass({
         <div className='Display'>
           <p className='Display-name'>{this.state.hero.name}</p>
           <p className='Display-role'>{this.state.hero.role}</p>
-          <p className='Display-winPercent'>{this.state.hero.winPercent + '%'}</p>
+          <p className='Display-winPercent'>{this.state.hero.winPercent + '%'} <span className='Display-winPercentLabel'>WIN RATE</span></p>
           <TalentTiers talents={this.state.hero.talents} />
         </div>
       )
