@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src",
+    "download": "node tools/datadownloader.js",
     "build": "node tools/databuilder.js"
   },
   "devDependencies": {
