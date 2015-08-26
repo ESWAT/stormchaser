@@ -9,6 +9,7 @@
   height: auto;
   width: 20%;
   padding: 0 10px 20px;
+  cursor: pointer;
 
   &:hover{
     .Hero-image {
@@ -26,7 +27,6 @@
     margin: 0 0 10px;
     max-width: 100%;
     height: auto;
-    cursor: pointer;
   }
 
   &-name {
