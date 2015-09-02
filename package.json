@@ -6,7 +6,8 @@
     "start": "node server.js",
     "lint": "eslint src",
     "download": "node tools/datadownloader.js",
-    "build": "node tools/databuilder.js",
+    "build-data": "node tools/databuilder.js",
+    "build-app": "webpack -p --config webpack.prod.config.js",
     "deploy": "gh-pages-deploy"
   },
   "devDependencies": {
@@ -19,7 +20,9 @@
     "exports-loader": "^0.6.2",
     "file-loader": "^0.8.4",
     "gh-pages-deploy": "^0.3.0",
+    "html-loader": "^0.3.0",
     "imports-loader": "^0.6.4",
+    "indexhtml-webpack-plugin": "^0.1.9",
     "jsonq": "^1.0.3",
     "node-sass": "^3.2.0",
     "react-hot-loader": "^2.0.0-alpha-2",

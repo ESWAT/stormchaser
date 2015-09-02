@@ -1,5 +1,6 @@
 import alt from '../alt';
 import Fetcher from '../utils/Fetcher';
+import heroData from '../data/heroData.json';
 
 class HeroActions {
   updateHeroes(heroes) {
@@ -8,7 +9,7 @@ class HeroActions {
 
   fetchHeroes() {
     this.dispatch();
-    Fetcher.fetchData('data/heroData.json')
+    Fetcher.fetchData(heroData)
       .then((res) => {
         return res.json();
       })

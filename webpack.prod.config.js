@@ -1,23 +1,21 @@
 var path = require('path');
 var webpack = require('webpack');
+var IndexHtmlPlugin = require('indexhtml-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval',
-  entry: [
-    'webpack-dev-server/client?http://localhost:8000',
-    'webpack/hot/only-dev-server',
-    './src/index'
-  ],
+  entry: {
+    'index.html': path.join(__dirname, 'src/index.html'),
+    'bundle.js': path.join(__dirname, 'src/index.js'),
+  },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name]'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
       'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-    })
+    }),
+    new IndexHtmlPlugin('index.html', 'index.html')
   ],
   resolve: {
     extensions: ['', '.js', '.jsx', '.scss', '.json']
@@ -25,8 +23,12 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.html?$/,
+        loaders: ['html'],
+      },
+      {
         test: /\.jsx?$/,
-        loaders: ['react-hot', 'babel'],
+        loaders: ['babel'],
         include: path.join(__dirname, 'src')
       },
       {
