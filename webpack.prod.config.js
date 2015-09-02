@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var IndexHtmlPlugin = require('indexhtml-webpack-plugin');
+var Clean = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -12,6 +13,7 @@ module.exports = {
     filename: '[name]'
   },
   plugins: [
+    new Clean(['build']),
     new webpack.ProvidePlugin({
       'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     }),
