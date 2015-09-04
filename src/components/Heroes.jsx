@@ -27,10 +27,10 @@ var Heroes = React.createClass({
     });
   },
 
-  handleHeroDisplay(hero) {
+  handleHeroDisplay(hero, event) {
+    event.preventDefault();
     DisplayActions.displayVisible(true);
     DisplayActions.populateDisplay(hero);
-    return false;
   },
 
   render() {
