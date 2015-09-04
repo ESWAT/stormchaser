@@ -12,9 +12,8 @@ var TalentTiers = React.createClass({
         {Object.keys(tiers).map((key) => {
           return (
             <ul className='TalentTier'>
-              <li className='TalentTier-title'>{key}</li>
               {tiers[key].map((talent) => {
-                return <Talent name={talent.name} optimal={talent.optimal} />
+                return <Talent name={talent.name} optimal={talent.optimal} label={talent.optimal ? key : null} />
               })}
             </ul>
           )
