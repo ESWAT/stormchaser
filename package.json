@@ -8,7 +8,7 @@
     "download": "node tools/datadownloader.js",
     "build-data": "node tools/databuilder.js",
     "build-app": "webpack -p --config webpack.prod.config.js",
-    "deploy": "gh-pages-deploy"
+    "deploy": "webpack -p --config webpack.prod.config.js; node tools/deploy.js"
   },
   "devDependencies": {
     "autoprefixer-loader": "^2.0.0",
@@ -20,7 +20,7 @@
     "eslint-plugin-react": "^3.2.3",
     "exports-loader": "^0.6.2",
     "file-loader": "^0.8.4",
-    "gh-pages-deploy": "^0.3.0",
+    "gh-pages": "^0.4.0",
     "html-loader": "^0.3.0",
     "imports-loader": "^0.6.4",
     "indexhtml-webpack-plugin": "^0.1.9",
@@ -36,9 +36,5 @@
     "alt": "^0.17.1",
     "react": "^0.13.0",
     "whatwg-fetch": "^0.9.0"
-  },
-  "gh-pages-deploy": {
-    "staticpath": "build",
-    "prep": ["build-app"]
   }
 }
